@@ -1,0 +1,26 @@
+{
+  "name": "Trap",
+  "tagName": "x-tag-trap",
+  "version": "1.0.0",
+  "author": "Gianni Furger",
+  "description": "A X-Tag element for handling keyboard shortcuts and gestures",
+  "demo": "index.html",
+  "categories": [
+    "web-component",
+    "web-components"
+  ],
+  "compatibility": {
+    "android": 4.3
+  },
+  "documentation": {
+    "description": "A X-Tag element for handling keyboard shortcuts and gestures",
+    "attributes": {
+      "keys": "",
+      "gestures": "",
+      "action": ""
+    },
+    "events": {},
+    "methods": {},
+    "getters": {}
+  }
+}

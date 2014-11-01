@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>&lt;x-tag-trap&gt;</title>
+  <script type="text/javascript" src="dist/mousetrap.min.js"></script>
+  <script type="text/javascript" src="dist/mousetrap.pause.min.js"></script>
+  <script type="text/javascript" src="dist/mousetrap.record.min.js"></script>
+  <script type="text/javascript" src="dist/x-tag-components.js"></script>
+  <script type="text/javascript" src="dist/hammer.min.js"></script>
+  <script type="text/javascript" src="src/trap.js"></script>
+  <script type="text/javascript" src="src/demo.js"></script>
+  <link href="http://fuelcdn.com/fuelux/2.3.1/css/fuelux.css" type="text/css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type='text/javascript' src="http://fuelcdn.com/fuelux/2.3.1/loader.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <style>
+  html, body { height: 100%; /*margin: 0;*/ }
+  body { margin: 20px; }
+  pre { margin-top: 20px; }
+  x-trap { display: inline-block; white-space: nowrap; margin: 0; padding: 2px 3px; -moz-transition:background 0.4s ease-in; -o-transition:background 0.4s ease-in; -webkit-transition:background 0.4s ease-in; transition:background 0.4s ease-in; }
+  x-trap.highlight { background: #70c6ff; }
+  table { width: 100%; }
+  th, td { text-align: left; }
+  ::selection { background: #70c6ff; }
+  ::-moz-selection { background: #70c6ff; }
+  h4 {margin-top: 30px;}
+  </style>
+</head>
+<body class="fuelux">
+
+  <h1><a href="http://github.com/alternatex/x-trap">&lt;x-trap&gt;</a></h1>
+
+  <h2 style="margin-top: 14px; font-size: 24px; line-height: 28px; font-weight: normal; " stylez="float: right; display: block; font-style: italic; font-size: 20px; font-weight: normal;">A <a href="http://x-tags.org">X-Tag</a> element for handling gestures &amp; keyboard shortcuts, backed by <a target="_blank" href="https://github.com/hammerjs/hammer.js">Hammer.js</a> and <a target="_blank" href="https://github.com/ccampbell/mousetrap">Mousetrap</a>.</h2>
+
+  <div style="display: none; clear: both;" class="pull-right">
+    <input type="text" name="test" value=""/>
+    <button id="record"><span style="font-weight: bold; text-decoration: underline;">r</span>ecord</button>
+    <button id="pause"><span style="font-weight: bold; text-decoration: underline;">p</span>ause</button>
+    <button id="unpause" disabled="disabled"><span style="font-weight: bold; text-decoration: underline;">u</span>npause</button>
+  </div>
+
+  <x-trap keys="1" action="$('a[href=&quot;#keys&quot;]').tab('show');"></x-trap>
+  <x-trap keys="2" action="$('a[href=&quot;#gestures&quot;]').tab('show');"></x-trap>
+  <x-trap keys="3" action="$('a[href=&quot;#combos&quot;]').tab('show');"></x-trap>
+
+  <ul id="myTab" class="nav nav-tabs" role="tablist">
+    <li class="active"><a href="#keys" role="tab" data-toggle="tab">Keyboard Shortcuts<span style="font-weight: bold; text-decoration: none;">&nbsp;</span>[1]</a></li>
+    <li><a href="#gestures" role="tab" data-toggle="tab">Gestures<span style="font-weight: bold; text-decoration: none;">&nbsp;</span>[2]</a></li>
+    <li><a href="#combos" role="tab" data-toggle="tab">Combinations<span style="font-weight: bold; text-decoration: none;">&nbsp;</span>[3]</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content" style="width: 100%;">
+    <div class="tab-pane" id="gestures">
+      <h3>Gestures</h3>
+      <pre data-language="javascript">
+<x-trap gestures="panleft press" action="highlight(this);" stlye="border: 1px solid #333 !important; background: red;">
+    <code style="background: transparent; border: none;">&lt;x-trap gestures=&quot;panleft press&quot; action=&quot;highlight(this);&quot;/&gt;</code>
+</x-trap></pre>
+    </div>
+    <div class="tab-pane in active" id="keys">
+  <h3>Keyboard Shortcuts</h3>
+  <h4>Single Keys</h4>
+  <pre data-language="javascript">
+<x-trap keys="x" action="console.log('X pressed'); highlight(this);">
+<code>&lt;x-trap keys=&quot;x&quot; action=&quot;highlight(this);&quot;/&gt;</code>
+</x-trap>
+<x-trap keys="4" action="console.log('4 pressed'); highlight(this);">
+<code>&lt;x-trap keys=&quot;4&quot; action=&quot;highlight(this);&quot;/&gt;</code>
+</x-trap></pre>
+  <h4>Combinations</h4>
+  <pre data-language="javascript">
+<x-trap keys="command+shift+k" action="highlight(this);">
+<code id="line-6">&lt;x-trap keys=&quot;command+shift+k&quot; action=&quot;highlight(this);&quot;/&gt;</code>
+</x-trap></pre>
+  <h4>Gmail Style Sequences</h4>
+  <pre data-language="javascript">
+<x-trap keys="g i" action="console.info('g i'); highlight(this);">
+<code>&lt;x-trap keys=&quot;g i&quot; action=&quot;highlight(this);&quot;/&gt;</code>
+</x-trap>
+<x-trap keys="* a" action="console.info('* a'); highlight(this);">
+<code>&lt;x-trap keys=&quot;* a&quot; action=&quot;highlight(this);&quot;/&gt;</code>
+</x-trap></pre>
+  <h4>Konami Code</h4>
+  <pre data-language="javascript">
+<x-trap keys="up up down down left right left right b a enter" action="highlight(this);">
+<code>&lt;x-trap keys=&quot;up up down down left right left right b a enter&quot; action=&quot;highlight(this);&quot;/&gt;</code>
+</x-trap></pre>
+    </div>
+  <div class="tab-pane " id="combos">
+      <h3 style="/*margin-top: 30px;*/">Combinations</h3>
+      <h4>Miscellaneous</h4>
+<pre data-language="javascript">
+<x-trap gestures="pandown" keys="c" action="console.info('shift+b &amp; pandown'); highlight(this);">
+<code>&lt;x-trap keys="c" gestures=&quot;pandown&quot; action=&quot;highlight(this);&quot;/&gt;</code>
+</x-trap></pre>
+    </div>
+  </div>
+
+  <div style="display: none;">
+    <x-trap keys="ctrl+i" action="highlight(this);"></x-trap>
+    <x-trap keys="ctrl+shift+b" action="console.info('killing mice'); "></x-trap>
+    <x-trap keys="a space command" action="window.open('http://spacecommandmusic.com');"></x-trap>
+
+    <x-trap keys="['command+k', 'ctrl+k']" action="console.info('x');"></x-trap>
+
+    <x-trap gestures="panleft" action="$('a[href=&quot;#gestures&quot;]').tab('show');">lefty</x-trap>
+    <x-trap gestures="panright" action="$('a[href=&quot;#keys&quot;]').tab('show');">righty</x-trap>
+
+    <x-trap keys="command+k" action="console.info('x');"></x-trap>
+    <x-trap keys="ctrl+k" action="console.info(4);"></x-trap>
+
+    <x-trap keys="shift+b" action="console.info('killing mice');"></x-trap>
+
+    <x-trap keys="p" action="globDisabled=true; document.getElementsByTagName('x-trap')[0].pause();"></x-trap>
+    <x-trap keys="r" action="document.getElementById('pause').setAttribute('disabled', 'disabled'); document.getElementById('record').setAttribute('disabled', 'disabled'); Mousetrap.record(function(sequence){alert('sequence:'+sequence); document.getElementById('pause').removeAttribute('disabled'); document.getElementById('record').removeAttribute('disabled');});"></x-trap>
+
+    <!-- CREDIT WHERE CREDIT IS DUE -->
+    <x-trap keys="space command" action="window.open('http://spacecommandmusic.com');"></x-trap>
+    <x-trap keys="left right" action="window.open('http://spacecommandmusic.com');"></x-trap>
+    <!-- CREDIT WHERE CREDIT IS DUE -->
+
+    <x-trap keys="y z" action="highlight(this);">
+      <div style="padding-top: 80px; text-align: center; font-weight: 400; font-family: monospace; /*background-color: yellow;*/ width: 500px; height: 90px;">
+      Swipe controlled area *
+      </div>
+    </x-trap>
+
+    <x-trap keys="9" action="highlight(this);">
+      <div style="padding-top: 80px; text-align: center; font-weight: 400; font-family: monospace; /*background-color: yellow;*/ width: 500px; height: 90px;">
+      Swipe controlled area *
+      </div>
+    </x-trap>
+
+    <x-trap gestures="panleft press" action="highlight(this);">
+      <div style="padding-top: 80px; text-align: center; font-weight: 400; font-family: monospace; /*background-color: yellow;*/ width: 500px; height: 90px;">
+      Swipe controlled area *
+      </div>
+    </x-trap>
+
+    <x-trap keys="shift+a" gestures="pandown" action="highlight(this);">
+      <div style="padding-top: 80px; text-align: center; font-weight: 400; font-family: monospace; /*background-color: yellow;*/ width: 500px; height: 90px;">
+      Swipe abcdefgfff
+      </div>
+    </x-trap>
+  </div>
+  <script>
+
+    // TODO: generate enhanced documentation by markup
+    (function(source){
+
+      // retrieve source tag elements
+      var traps = xtag.query(source, 'x-trap');
+      console.info("traps", traps);
+
+      // abort w/noise if none found
+      if(traps.length==0){
+        throw new Error(['No x-trap elements present in', source]);
+      }
+
+      // ...
+      var fragment = xtag.createFragment();
+
+      // generate documentation
+      // xtag.createFragment();
+
+    })(document.body);
+  </script>
+</body>
+</html>
