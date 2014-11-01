@@ -1,0 +1,34 @@
+{
+  "name": "Route",
+  "tagName": "x-tag-trap",
+  "version": "0.1.0",
+  "author": "Gianni Furger",
+  "description": "A X-Tag element for URL routing",
+  "demo": "index.html",
+  "categories": [
+    "web-component",
+    "web-components",
+    "router",
+    "routing"
+  ],
+  "compatibility": {
+    "android": 4.3
+  },
+  "documentation": {
+    "description": "A X-Tag element for URL routing",
+    "attributes": {
+      "path": "Path to a supported route",
+      "auto": "Automatically update the window location hash",
+      "route": "The current route"
+    },
+    "events": {
+      "route-changed": "Fired when route changes"
+    },
+    "methods": {
+      "fireChanged()": ""
+    },
+    "getters": {
+      "router": ""
+    }
+  }
+}

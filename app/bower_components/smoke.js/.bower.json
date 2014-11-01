@@ -1,0 +1,32 @@
+{
+  "name": "smoke.js",
+  "main": "system for javascript",
+  "homepage": "http://smoke-js.com/",
+  "authors": [
+    "Jonathan Youngblood <jonathan.youngblood@gmail.com>"
+  ],
+  "description": "framework-agnostic styled alert",
+  "keywords": [
+    "alert",
+    "vanillajs",
+    "framework-agnostic"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "a0cce74f3d",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "a0cce74f3da89a65139f19de795e3d3c1d8640e1"
+  },
+  "_source": "git://github.com/hxgf/smoke.js.git",
+  "_target": "*",
+  "_originalSource": "smoke.js",
+  "_direct": true
+}

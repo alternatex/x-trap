@@ -1,0 +1,29 @@
+{
+  "name": "x-tag-trap",
+  "version": "0.1.0",
+  "description": "A X-Tag element for handling keyboard shortcuts and gestures",
+  "author": "Gianni Furger",
+  "license": "MIT",
+  "main": [
+    "src/mousetrap.min.js",
+    "src/trap.js"
+  ],
+  "keywords": [
+    "web-component",
+    "web-components",
+    "keyboard",
+    "shortcut"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "depedencies": {
+    "x-tag-core": "0.9.4",
+    "brick-common": "0.1.2"
+  }
+}
